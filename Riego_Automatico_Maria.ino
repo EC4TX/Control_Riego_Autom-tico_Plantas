@@ -1,4 +1,3 @@
-
 //library DHT22
 #include <DHT.h>
 
@@ -29,8 +28,9 @@ Adafruit_BMP085_Unified bmp = Adafruit_BMP085_Unified(10085);
 
 const int seco = 840; // valor seco
 const int mojado = 430; // valor mojada
-const int DHTPin = 5;     // pin digital del DHT-22
+const int DHTPin = 5;     // pin digital del DHT-22 pin 5 GPIO 5 D1
 const int sensorVal = 0;
+const int bomba = 16; // pin 16 GPIO 16 D0
 DHT dht(DHTPin, DHTTYPE);
 
 // Configuración API y WIFI,
@@ -118,6 +118,27 @@ if ( isnan(h) || isnan(t))
 //Serial.print (sensorVal);
 Serial.println();
 delay(100);
+
+ if(PorcentajeHumedad <= 49)
+  {
+    Serial.println("Suelo seco, SE RIEGA!!!");
+    digitalWrite(bomba, HIGH);
+    delay(2000);
+    digitalWrite(bomba, LOW);
+    delay(1000);    
+  }
+ 
+  if(PorcentajeHumedad > 50 && PorcentajeHumedad <= 70)
+  {
+    Serial.println("Suelo Perfecto, NO SE RIEGA !!!");
+  }
+ 
+  if(PorcentajeHumedad > 71)
+  {
+    Serial.println("Suelo con exceso de humedad, NO SE RIEGA !!!");
+  }
+ 
+  Serial.println(" ");
 
 //--------------------------thingspeak-------------------------
 
