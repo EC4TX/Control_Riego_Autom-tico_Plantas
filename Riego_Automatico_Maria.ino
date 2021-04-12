@@ -30,7 +30,7 @@ const int seco = 840; // valor seco
 const int mojado = 430; // valor mojada
 const int DHTPin = 5;     // pin digital del DHT-22 pin 5 GPIO 5 D1
 const int sensorVal = 0;
-const int bomba = 16; // pin 16 GPIO 16 D0
+const int bomba = 4; // pin  GPIO 4 D2
 DHT dht(DHTPin, DHTTYPE);
 
 // Configuración API y WIFI,
@@ -47,6 +47,9 @@ WiFiClient client;
 
 void setup() 
 {
+pinMode(4, OUTPUT);
+
+
    
 Serial.begin(9600);
 dht.begin();
@@ -122,9 +125,9 @@ delay(100);
  if(PorcentajeHumedad <= 49)
   {
     Serial.println("Suelo seco, SE RIEGA!!!");
-    digitalWrite(bomba, HIGH);
-    delay(2000);
     digitalWrite(bomba, LOW);
+    delay(2000);
+    digitalWrite(bomba, HIGH);
     delay(1000);    
   }
  
