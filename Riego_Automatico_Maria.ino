@@ -36,8 +36,8 @@ DHT dht(DHTPin, DHTTYPE);
 // Configuración API y WIFI,
 
 String apiKey = "FY3M6LZI9JXXQMB6";             // Cambia con tu API Key Write Thingspeak Channel
-const char* ssid = "iPhone";                    // Pon tu nombre de red Wifi
-const char* password = "1234567812345678";      // Pon tu password de la red Wifi
+const char* ssid = "RaulWireless";                    // Pon tu nombre de red Wifi
+const char* password = "09021972S52346127J";      // Pon tu password de la red Wifi
 
 const char* server = "api.thingspeak.com";      // Dirección del servidor Thingspeak, "184.106.153.149" o api.thingspeak.com
 
@@ -48,6 +48,7 @@ WiFiClient client;
 void setup() 
 {
 pinMode(4, OUTPUT);
+digitalWrite(bomba, HIGH);
 
 
    
@@ -110,7 +111,7 @@ if ( isnan(h) || isnan(t))
  
  Serial.print(" Humedad Tierra ");
  Serial.print(PorcentajeHumedad);
- Serial.print(" %");
+ Serial.print(" % ");
  Serial.print("Humedad Ambiente: ");
  Serial.print(h);
  Serial.print(" %\t");
@@ -184,5 +185,7 @@ client.stop();
 // Thingspeak necesita al menos 15 segundos de retardo en la actualización.
 
 delay(20000);
+
+}
 
 }
