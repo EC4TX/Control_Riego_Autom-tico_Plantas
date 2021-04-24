@@ -35,9 +35,9 @@ DHT dht(DHTPin, DHTTYPE);
 
 // Configuración API y WIFI,
 
-String apiKey = "FY3M6LZI9JXXQMB6";             // Cambia con tu API Key Write Thingspeak Channel
-const char* ssid = "RaulWireless";                    // Pon tu nombre de red Wifi
-const char* password = "09021972S52346127J";      // Pon tu password de la red Wifi
+String apiKey = "TU API KEY";             // Cambia con tu API Key Write Thingspeak Channel
+const char* ssid = "TU SSID";                    // Pon tu nombre de red Wifi
+const char* password = "TU PASSWORD";      // Pon tu password de la red Wifi
 
 const char* server = "api.thingspeak.com";      // Dirección del servidor Thingspeak, "184.106.153.149" o api.thingspeak.com
 
@@ -185,7 +185,5 @@ client.stop();
 // Thingspeak necesita al menos 15 segundos de retardo en la actualización.
 
 delay(20000);
-
-}
 
 }
